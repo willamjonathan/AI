@@ -5,7 +5,7 @@ My name is William Jonathan Mulyadi (2502045683). I'm from L5AC, here are my sol
 ## Details
 Number 1 is Maze.py
 
-Number 2 is
+Number 2 is 2_TravellingSalesman.py
 
 Number 3 is TicTacToe.py
 
