@@ -10,8 +10,10 @@ Number 2 is 2_TravellingSalesman.py
 Number 3 is TicTacToe.py
 
 
-### Others
+## Others
 I also input the proof of working code, just in case it doesn't work.
+LINK: https://github.com/willamjonathan/AI/tree/main/assignment1/proof%20of%20working%20code
+
 
 
 
