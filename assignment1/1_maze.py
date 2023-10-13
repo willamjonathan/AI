@@ -44,6 +44,7 @@ def bfs(maze, start, end):
             print("visit:", z)
 
         if z == end:
+            print("\n")
             print("end of the point:", end, "(G)")
             break
 
