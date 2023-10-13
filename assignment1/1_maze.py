@@ -1,32 +1,32 @@
 
 def create_maze():
     maze = {
-        #defining the maze
-        #(COLUMN,ROW)
-        #following what mr yessen made in class
-        "0,0": ["0,1"],
-        "0,1":["0,2"],
-        "0,2":["0,3"],
-        "0,3":["0,4","1,3"],
-        "1,3":["1,2","1,4","2,3"],
-        "2,3":[],
-        "1,2":["1,1"],
-        "1,1":["1,0"],
-        "1,0":["2,0"],
-        "2,0":["3,0"],
-        "3,0":["3,1"],
-        "3,1":["2,1","3,2"],
-        "2,1":[],
-        "3,2":["2,2","4,2"],
-        "2,2":[],
-        "4,2":["4,1"],
-        "0,4":[],
-        "1,4":["2,4"],
-        "2,4":["3,4"],
-        "3,4":["4,4"],
-        "4,4":["4,3"],
-        "4,3":["3,3"],
-        "3,3":[]        
+        # defining the maze
+        # (COLUMN, ROW)
+        # following what mr yessen made in class
+        (0, 0): [(0, 1)],
+        (0, 1): [(0, 2)],
+        (0, 2): [(0, 3)],
+        (0, 3): [(0, 4), (1, 3)],
+        (1, 3): [(1, 2), (1, 4), (2, 3)],
+        (2, 3): [],
+        (1, 2): [(1, 1)],
+        (1, 1): [(1, 0)],
+        (1, 0): [(2, 0)],
+        (2, 0): [(3, 0)],
+        (3, 0): [(3, 1)],
+        (3, 1): [(2, 1), (3, 2)],
+        (2, 1): [],
+        (3, 2): [(2, 2), (4, 2)],
+        (2, 2): [],
+        (4, 2): [(4, 1)],
+        (0, 4): [],
+        (1, 4): [(2, 4)],
+        (2, 4): [(3, 4)],
+        (3, 4): [(4, 4)],
+        (4, 4): [(4, 3)],
+        (4, 3): [(3, 3)],
+        (3, 3): []
     }
     return maze
 
@@ -38,7 +38,10 @@ def bfs(maze, start, end):
     while queue:
         u = queue.pop(0)
         visited.append(u)
-        print("visited:", u)
+        if len(visited) == 1:
+            print("visit:", u, "(S)")
+        else:
+            print("visit:", u)
 
         if u == end:
             print("end of the point:", end, "(G)")
@@ -47,16 +50,41 @@ def bfs(maze, start, end):
         for v in maze[u]:
             if v not in visited and v not in queue:
                 queue.append(v)
-                print("added neighbour:", v)
+                print("the neighbour added:", v)
 
 # run BFS
 def main():
-    start = "0,0"
-    target = "2,1"
+    while True:
+        print("1. Use default starting point (0.0) and ending point (2,1) ")
+        print("2. Manually enter between (0,0) to (4,4)")
+        a = input("Please choose between 1 and 2: ")
+
+        if a == '1':
+            start = (0, 0)
+            target = (2, 1)
+            break
+        elif a == '2':
+            start = eval(input("Please enter your point of start (0,0 to 4,4) as (column, row): "))
+            target = eval(input("Please enter your point of end (0,0 to 4,4) as (column, row): "))
+            if 0 <= start[0] <= 5 and 0 <= start[1] <= 5 and 0 <= target[0] <= 5 and 0 <= target[1] <= 5:
+                break
+            else:
+                print("Invalid input. Row and column values must be between 0 and 5.")
+        else:
+            print("Invalid choice. Please enter 1 or 2.")
+    
     maze = create_maze()
     bfs(maze, start, target)
 
-main()
+while True:
+    main()
+    print("\n")
+    try_again = input("Do you want to try again? (y): ")
+    if try_again.lower() == "y":
+        continue
+    else:
+        print("Thank you!")
+        break
 
 
 #I actually have tried to make a different version of the maze, not following the one in class
