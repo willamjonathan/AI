@@ -32,25 +32,25 @@ def create_maze():
 
 def bfs(maze, start, end):
     visited = []
-    queue = []
-    queue.append(start)
+    bfs_q = []
+    bfs_q.append(start)
 
-    while queue:
-        u = queue.pop(0)
-        visited.append(u)
+    while bfs_q:
+        z = bfs_q.pop(0)
+        visited.append(z)
         if len(visited) == 1:
-            print("visit:", u, "(S)")
+            print("visit:", z, "(S)")
         else:
-            print("visit:", u)
+            print("visit:", z)
 
-        if u == end:
+        if z == end:
             print("end of the point:", end, "(G)")
             break
 
-        for v in maze[u]:
-            if v not in visited and v not in queue:
-                queue.append(v)
-                print("the neighbour added:", v)
+        for i in maze[z]:
+            if i not in visited and i not in bfs_q:
+                bfs_q.append(i)
+                print("the neighbour added:", i)
 
 # run BFS
 def main():
@@ -137,6 +137,6 @@ while True:
 #             Q.append((new_row, new_col)) #appending to the Q
 #             visited.add((new_row, new_col))  # input to visited
 
-#     print("Current Queue:", Q)
+#     print("Current bfs_q:", Q)
 
 # print("Visited cells:", visited)
