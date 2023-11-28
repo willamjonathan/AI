@@ -1,4 +1,4 @@
-
+# AI Forum Week 9 - Deep Learning Model
 For our task, we utilized the Tensorflow Keras library to conduct deep learning on our dataset of famous painters and their paintings based on the given DL pipeline. Our final project is to use this deep learning model and algorithm to create a program that is able to predict famous painters based on their works with adequate to great accuracy. 
 
 ## Group Members
